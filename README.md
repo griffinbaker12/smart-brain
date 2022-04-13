@@ -1,10 +1,4 @@
 # SmartBrain - v1
-Final project for ZTM course
+Final project for ZTM course, included additional functionality such as multiple-model integration, preventing duplicate URL entries, search history, etc.
 
-1. Clone this repo
-2. Run `npm install`
-3. Run `npm start`
-4. You must add your own API key in the `src/App.js` file to connect to Clarifai.
-
-You can grab Clarifai API key [here](https://www.clarifai.com/)
-
+Check out this project here: https://sbztm.herokuapp.com.
