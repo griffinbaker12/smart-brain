@@ -1,4 +1,3 @@
-# SmartBrain - v1
-Final project for ZTM course, included additional functionality such as multiple-model integration, preventing duplicate URL entries, search history, etc.
+# SmartBrain Project
 
-Check out this project here: https://sbztm.herokuapp.com.
+Check it out here: https://sbztm.herokuapp.com.
