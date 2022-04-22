@@ -1,0 +1,36 @@
+.model-buttons {
+  gap: 0.5rem;
+}
+
+.model-button {
+  width: 175px;
+  padding: 8px 16px;
+  border: white;
+  background-color: rgba(19, 173, 212, 0.527);
+  color: white;
+}
+
+.grow {
+  -moz-osx-font-smoothing: grayscale;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  transition: transform 0.25s ease-out;
+}
+
+.grow:hover,
+.grow:focus {
+  transform: scale(1.05);
+}
+
+grow:active {
+  transform: scale(0.9);
+}
+
+.active {
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.inactive {
+  opacity: 0.7;
+}

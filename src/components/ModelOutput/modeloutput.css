@@ -1,0 +1,32 @@
+.prediction-model-container {
+  overflow-y: scroll;
+  /* background-color: aliceblue; */
+  border: 5px solid ghostwhite;
+  width: 30%;
+  border-radius: 10px;
+}
+
+.prediction-container {
+  padding-right: 16px;
+  padding-left: 16px;
+  margin: 0;
+  margin-top: 4px;
+}
+
+.prediction-heading {
+  line-height: 10px;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  font-size: 80%;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.529);
+}
+
+.predicted-concept {
+  line-height: 10px;
+}
+
+li:last-child {
+  border-bottom: none;
+}

@@ -1,0 +1,13 @@
+/* .model-view {
+  height: auto;
+} */
+
+/* .prediction-model-container {
+  height: 350px;
+  overflow-y: scroll;
+} */
+
+.list-container {
+  /* height: 400px; */
+  overflow-y: scroll;
+}
