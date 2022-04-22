@@ -23,10 +23,33 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.529);
 }
 
-.predicted-concept {
+.concept {
   line-height: 10px;
 }
 
 li:last-child {
   border-bottom: none;
+}
+
+@media screen and (max-width: 1200px) {
+  .predicted-concept {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+}
+
+@media screen and (max-width: 935px) {
+  .prediction-container {
+    font-size: 75%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .prediction-model-container {
+    width: 40%;
+  }
+  .prediction-container {
+    font-size: 80%;
+  }
 }

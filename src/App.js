@@ -111,46 +111,20 @@ class App extends Component {
 
   updateModel = event => {
     this.setState(prevState => {
-      // const newObj = Object.assign(
-      //   {},
-      //   { imageURL: this.state.imageURL },
-      //   {
-      //     model: event.target.name,
-      //   }
-      // );
-      // newObj.imageURL[prevState.model] = '';
-      // console.log(newObj);
-      // return { newObj };
-      // const newObj = Object.assign(
-      //   {},
-      //   { model: event.target.name },
-      //   { imageURL: this.state.imageURL },
-      //   { imageURL: { [prevState.model]: '' } }
-      // );
-      // return newObj;
-
-      // This code works perfectly for the model change
-      // const newObj = Object.assign({}, { model: event.target.name });
-      // console.log(event.target.name);
-      // END
-
       const newObj = Object.assign(
         {},
         { model: event.target.name },
-        { imageURL: this.state.imageURL }
+        { imageURL: { ...this.state.imageURL } }
       );
 
       newObj.imageURL[prevState.model] = '';
-
-      // Now to add on the change so that when we go back and forth between models, the imageURL gets reset (essentially the image will disappear when you switch between)
-
       return newObj;
     });
   };
 
   onInputChange = event =>
     this.setState(prevState => {
-      const newObj = Object.assign({}, { input: this.state.input });
+      const newObj = Object.assign({}, { input: { ...this.state.input } });
       newObj.input[this.state.model] = event.target.value;
       return newObj;
     });
@@ -175,7 +149,6 @@ class App extends Component {
   calculateImageHeight = () => {
     const image = document.getElementById('inputimage');
     const height = Number(image.height);
-    console.log(height);
     this.setState({ imageHeight: height });
     return { image, height };
   };
@@ -184,29 +157,24 @@ class App extends Component {
     this.setState({ boxes: faceBoxes });
   };
 
-  // Could move this into the ModelView component now to keep things closer together; pass in a "model" parameter
   onButtonSubmit = () => {
-    // Blocks user from entering with blank url or repeating
-    // LOOK AT THIS AGAIN THIS IS NOT RIGHT, NEEDS TO BE UPDATED
     if (this.state.input[this.state.model] === '') {
       alert("Don't try to cheat the rules...upload a valid image URL!");
       return;
     }
 
-    this.setState(() => {
+    this.setState(prevState => {
       const newObj = Object.assign(
         {},
         {
-          imageURL: {
-            [this.state.model]: [this.state.input[this.state.model]],
-          },
+          imageURL: { ...prevState.imageURL },
         }
       );
+      newObj.imageURL[this.state.model] = this.state.input[this.state.model];
       return newObj;
     });
 
-    // Yeah so let's move to the model view component and then also send what model we are using to the backend and then it can do a simple check depending on which one we are using and then render the proper data
-    fetch('http://localhost:3000/imageurl', {
+    fetch('https://powerful-cove-68412.herokuapp.com/imageurl', {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -226,11 +194,15 @@ class App extends Component {
           })
             .then(response => response.json())
             .then(count => {
-              this.setState(Object.assign(this.state.user, { entries: count }));
+              this.setState(() => {
+                const userObj = Object.assign(this.state.user, {
+                  entries: count,
+                });
+                return { user: userObj };
+              });
             })
             .catch(err => console.log(err));
           if (this.state.model === 'facedetection') {
-            // This is all just so that we calculate the boxes correctly, so all we need to do is make sure that we have the proper "guesses" and then pass to right component
             this.displayFaceBoxes(this.calculateFaceLocations(data));
           } else {
             const { height } = this.calculateImageHeight();
@@ -246,7 +218,7 @@ class App extends Component {
 
   onRouteChange = route => {
     if (route === 'signout') {
-      this.setState(initialState);
+      this.setState({ ...initialState });
     } else if (route === 'home') {
       this.setState({ isSignedIn: true });
     }
