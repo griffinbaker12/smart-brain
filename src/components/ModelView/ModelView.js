@@ -23,7 +23,7 @@ function ModelView(props) {
       <div onClick={updateModel} className="pa3 flex center model-buttons">
         <button
           name="facedetection"
-          className={`dib ba bw2 grow br-pill model-button ${
+          className={`dib grow br-pill model-button ${
             model === 'facedetection' ? 'active' : 'inactive'
           }`}
         >
@@ -31,7 +31,7 @@ function ModelView(props) {
         </button>
         <button
           name="prediction"
-          className={`dib ba bw2 grow br-pill model-button ${
+          className={`dib grow br-pill model-button ${
             model !== 'facedetection' ? 'active' : 'inactive'
           }`}
         >
