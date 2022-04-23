@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import './signin.css';
 
 class SignIn extends Component {
   constructor(props) {
@@ -38,7 +39,7 @@ class SignIn extends Component {
   render() {
     const { onRouteChange } = this.props;
     return (
-      <article className="br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">
+      <article className="br3 ba b--black-10 mv4 card-width shadow-5 center">
         <main className="pa4 black-80">
           <div className="measure">
             <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
