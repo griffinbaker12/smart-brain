@@ -20,23 +20,26 @@ function ModelView(props) {
   } = props;
   return (
     <div>
-      <div onClick={updateModel} className="pa3 flex center model-buttons">
-        <button
-          name="facedetection"
-          className={`dib grow br-pill model-button ${
-            model === 'facedetection' ? 'active' : 'inactive'
-          }`}
-        >
-          Face Detection
-        </button>
-        <button
-          name="prediction"
-          className={`dib grow br-pill model-button ${
-            model !== 'facedetection' ? 'active' : 'inactive'
-          }`}
-        >
-          Prediction
-        </button>
+      <div className="model-select">
+        <p>SELECT A MODEL</p>
+        <div onClick={updateModel} className="flex center model-buttons">
+          <button
+            name="facedetection"
+            className={`model-one dib grow br-pill model-button ${
+              model === 'facedetection' ? 'active' : 'inactive'
+            }`}
+          >
+            Face Detection
+          </button>
+          <button
+            name="prediction"
+            className={`model-two dib grow br-pill model-button ${
+              model !== 'facedetection' ? 'active' : 'inactive'
+            }`}
+          >
+            Prediction
+          </button>
+        </div>
       </div>
       <div>
         <ModelOutput
