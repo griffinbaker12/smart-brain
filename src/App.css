@@ -23,7 +23,7 @@
   z-index: -1;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 940px) {
   .center-model {
     display: flex;
     flex-direction: column;

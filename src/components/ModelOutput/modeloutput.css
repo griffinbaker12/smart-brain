@@ -2,7 +2,7 @@
   overflow-y: scroll;
   /* background-color: aliceblue; */
   border: 5px solid ghostwhite;
-  width: 30%;
+  width: 400px;
   border-radius: 10px;
 }
 
@@ -39,17 +39,8 @@ li:last-child {
   }
 }
 
-@media screen and (max-width: 935px) {
-  .prediction-container {
-    font-size: 75%;
-  }
-}
-
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 940px) {
   .prediction-model-container {
-    width: 40%;
-  }
-  .prediction-container {
-    font-size: 80%;
+    height: 150px;
   }
 }
